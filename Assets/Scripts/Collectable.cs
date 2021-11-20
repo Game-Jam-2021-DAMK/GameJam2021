@@ -44,7 +44,7 @@ public class Collectable : MonoBehaviour
 
         if (collected)
         {
-            StartTimer();
+          
 
             if (transform.localScale.y > 0)
             {
@@ -60,25 +60,6 @@ public class Collectable : MonoBehaviour
             }
             
         }
-    }
-
-    void StartTimer()
-    {
-        Debug.Log("timer started");
-        timerMax -= Time.deltaTime;
-
-        if (timerMax <= 0.0f)
-        {
-            TimerEnded();
-        }
-    }
-
-    void TimerEnded()
-    {
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
-        gameObject.GetComponent<SphereCollider>().enabled = true;
-        timerMax = 4.0f;
-        collected = false;
     }
 
     void Bobbing()
@@ -113,7 +94,7 @@ public class Collectable : MonoBehaviour
         if (other.tag == "Player")
         {
             sound.Play(0);
-            explosion.Emit(10);
+            explosion.Emit(30);
             gameObject.GetComponent<SphereCollider>().enabled = false;
             collected = true;
         }
