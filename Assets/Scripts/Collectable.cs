@@ -95,7 +95,7 @@ public class Collectable : MonoBehaviour
         {
             sound.Play(0);
             explosion.Emit(30);
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             collected = true;
         }
     }
