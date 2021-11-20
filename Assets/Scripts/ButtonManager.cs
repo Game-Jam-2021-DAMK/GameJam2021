@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
 
     public void LaunchGame()
     {
-
+        GameManager.control.SwitchState(GameManager.State.inGamePlay);
     }
 
     public void ExitGame()
