@@ -52,13 +52,13 @@ public class TimeShift : MonoBehaviour
                 case true: //Synth Active, Jurassic Inactive
                     JurassicParent.SetActive(false);
                     SynthwaveParent.SetActive(true);
-                    RenderSettings.skybox = SkyBoxDino;
+                    RenderSettings.skybox = SkyBoxCity;
                     break;
 
                 case false: //Synth Inactive, Jurassic Active
                     JurassicParent.SetActive(true);
                     SynthwaveParent.SetActive(false);
-                    RenderSettings.skybox = SkyBoxCity;
+                    RenderSettings.skybox = SkyBoxDino;
                     break;
 
             }
