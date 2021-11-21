@@ -11,12 +11,13 @@ public class Character : MonoBehaviour
     public bool isDead = false;
     public float speed = 10f;
     public float jumpHeight;
+    public bool isRunning;
 
     public Vector3 jumpLocation;
     void Start()
     {
         jumpHeight = 3;
-        speed = 5f;
+        speed = 7f;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -26,8 +27,15 @@ public class Character : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(transform.forward * speed, ForceMode.Force); // * Time.deltaTime);
-            //gameObject.transform.position += Vector3.forward * speed * Time.deltaTime;
+            if (isRunning == true)
+            {
+                rb.AddForce(transform.forward * speed*3, ForceMode.Force);
+            }
+            else
+            {
+                rb.AddForce(transform.forward * speed, ForceMode.Force); // * Time.deltaTime);
+                 //gameObject.transform.position += Vector3.forward * speed * Time.deltaTime;
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -44,6 +52,14 @@ public class Character : MonoBehaviour
         rb.AddForce(transform.right * speed, ForceMode.Force); // * Time.deltaTime);
             //gameObject.transform.position += Vector3.right * speed * Time.deltaTime;
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
 
         if (jumping == false)
         {
@@ -54,7 +70,7 @@ public class Character : MonoBehaviour
 
                 if (jumpLocation == Vector3.zero) { jumpLocation = gameObject.transform.position; }
 
-                rb.AddForce(Vector3.up * speed);
+                rb.AddForce(Vector3.up * speed * 7);
                 if (gameObject.transform.position.y >= jumpHeight)
                 {
                     jumping = true;

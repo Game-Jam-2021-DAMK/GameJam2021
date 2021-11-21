@@ -8,6 +8,9 @@ public class TimeShift : MonoBehaviour
     public GameObject SynthwaveParent;
     public bool isShifting;
     public bool timePeriod;
+    public AudioSource Shifting;
+    public Material SkyBoxDino;
+    public Material SkyBoxCity;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class TimeShift : MonoBehaviour
        {
             Debug.Log("Beam me up!");
             isShifting = true;
+            Shifting.Play();
        }
 
     }
@@ -45,11 +49,13 @@ public class TimeShift : MonoBehaviour
                 case true: //Synth Active, Jurassic Inactive
                     JurassicParent.SetActive(false);
                     SynthwaveParent.SetActive(true);
+                    RenderSettings.skybox = SkyBoxDino;
                     break;
 
                 case false: //Synth Inactive, Jurassic Active
                     JurassicParent.SetActive(true);
                     SynthwaveParent.SetActive(false);
+                    RenderSettings.skybox = SkyBoxCity;
                     break;
 
             }

@@ -8,6 +8,8 @@ public class CarSpawner : MonoBehaviour
     public Transform spawnPoint;
     public float timerMax = 4f;
     public System.Random rd = new System.Random();
+    public GameObject newCar;
+    public Transform Spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class CarSpawner : MonoBehaviour
     void SpawnCar()
     {
 
-        GameObject newCar = Instantiate(car);
+        newCar = Instantiate(car, Spawner) as GameObject;
         newCar.transform.position = spawnPoint.transform.position;
 
     }

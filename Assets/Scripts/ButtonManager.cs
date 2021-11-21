@@ -22,6 +22,8 @@ public class ButtonManager : MonoBehaviour
     public void LaunchGame()
     {
         GameManager.control.SwitchState(GameManager.State.inGamePlay);
+        SceneManager.LoadScene(sceneName: "TechDemo");
+        Debug.Log("Loaded Scene");
     }
 
     public void ExitGame()

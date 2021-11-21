@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 4090597833587709327}
   - component: {fileID: 4090597833587709322}
   - component: {fileID: 4090597833587709321}
+  - component: {fileID: 1914673054532899915}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -482,6 +483,19 @@ MonoBehaviour:
   velocity: 0
   timerMax: 10
   CarSound: {fileID: 4090597833587709322}
+--- !u!114 &1914673054532899915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748631922595478077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad721a64ea627a4684875dd5fc3b041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointTarget: {fileID: 0}
 --- !u!1 &5040056330790353548
 GameObject:
   m_ObjectHideFlags: 0
