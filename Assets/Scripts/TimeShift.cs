@@ -11,6 +11,7 @@ public class TimeShift : MonoBehaviour
     public AudioSource Shifting;
     public Material SkyBoxDino;
     public Material SkyBoxCity;
+    public bool canShift = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +21,15 @@ public class TimeShift : MonoBehaviour
     // Update is called once per frame
     void Update() //checks if F is pressed, sets isShifting to true
     {
-       if(Input.GetKeyDown(KeyCode.F))
+       if (canShift == true)
        {
-            Debug.Log("Beam me up!");
-            isShifting = true;
-            Shifting.Play();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("Beam me up!");
+                isShifting = true;
+                Shifting.Play();
+            }
        }
-
     }
 
     private void FixedUpdate()
@@ -62,5 +65,13 @@ public class TimeShift : MonoBehaviour
 
             isShifting = false;
        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ActivateTimeShift"))
+        {
+            canShift = true;
+        }
     }
 }

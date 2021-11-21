@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         jumpHeight = 3;
-        speed = 7f;
+        speed = 6f;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -29,27 +29,27 @@ public class Character : MonoBehaviour
         {
             if (isRunning == true)
             {
-                rb.AddForce(transform.forward * speed*3, ForceMode.Force);
+                rb.AddForce(transform.forward * speed, ForceMode.Force);
             }
             else
             {
-                rb.AddForce(transform.forward * speed, ForceMode.Force); // * Time.deltaTime);
+                rb.AddForce(transform.forward * speed * 0.5f, ForceMode.Force); // * Time.deltaTime);
                  //gameObject.transform.position += Vector3.forward * speed * Time.deltaTime;
             }
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(-transform.right * speed, ForceMode.Force); // * Time.deltaTime);
+            rb.AddForce(-transform.right * speed * 0.5f, ForceMode.Force); // * Time.deltaTime);
             //gameObject.transform.position += Vector3.left * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(-transform.forward * speed, ForceMode.Force); // * Time.deltaTime);
+            rb.AddForce(-transform.forward * speed * 0.5f, ForceMode.Force); // * Time.deltaTime);
             //gameObject.transform.position += Vector3.back * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-        rb.AddForce(transform.right * speed, ForceMode.Force); // * Time.deltaTime);
+        rb.AddForce(transform.right * speed * 0.5f, ForceMode.Force); // * Time.deltaTime);
             //gameObject.transform.position += Vector3.right * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.LeftShift))

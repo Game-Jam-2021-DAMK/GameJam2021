@@ -28,6 +28,14 @@ public class Dino : MonoBehaviour
         rushPlayer = true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("CarBoundary"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void PlayDinoSound()
     {
         Debug.Log("Dino Roar");

@@ -22,7 +22,7 @@ public class ButtonManager : MonoBehaviour
     public void LaunchGame()
     {
         GameManager.control.SwitchState(GameManager.State.inGamePlay);
-        SceneManager.LoadScene(sceneName: "TechDemo");
+        SceneManager.LoadScene(sceneName: "TechDemo"); //Chamge this to our main scene
         Debug.Log("Loaded Scene");
     }
 
